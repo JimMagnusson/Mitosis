@@ -28,7 +28,7 @@ public class PlayerController2 : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ - 90);
 
-        if(Input.GetMouseButtonDown(0)) {
+        if(Input.GetMouseButton(0)) {
             SendMessage("ShootMitosisGun");
         }
     }
