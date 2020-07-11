@@ -9,6 +9,14 @@ class HelpFunctions
         dir.Normalize();
         rb.velocity = dir * speed;
     }
+    
+    public static void MoveTheThing(Rigidbody2D rb, Vector2 direction, float speed)
+    {
+        Vector2 dir = direction;
+        dir.Normalize();
+        rb.velocity = dir * speed;
+    }
+
 
     public static void CrashTheGame() { CrashTheGame("Message"); }
 

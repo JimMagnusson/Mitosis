@@ -9,7 +9,7 @@ public class RandomWalk : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //rb.velocity = RandomVector2D(-1f, 1f);
+        HelpFunctions.MoveTheThing(rb, RandomVector2D(-1f, 1f), 1f);
     }
 
     // Update is called once per frame
