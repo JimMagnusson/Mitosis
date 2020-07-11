@@ -9,4 +9,21 @@ class HelpFunctions
         dir.Normalize();
         rb.velocity = dir * speed;
     }
+
+    public static void CrashTheGame() { CrashTheGame("Message"); }
+
+    public static void CrashTheGame(string str) {
+        if(str == "OS") {
+            UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCategory.AccessViolation); //Error box + OS error
+        }
+        if(str == "Message") {
+            UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCategory.FatalError); //Error message
+        }
+        if(str == "Simple") {
+            UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCategory.Abort); //Error box
+        }
+        if(str == "BlackSheep") {
+            UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCategory.PureVirtualFunction); //Error box
+        }
+    }
 }
