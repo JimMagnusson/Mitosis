@@ -16,12 +16,6 @@ public class PlayerController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveTheThing(rb, Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-    }
-
-    void MoveTheThing(Rigidbody2D rb, float X, float Y) {
-        Vector2 dir = new Vector2(X,Y); 
-        dir.Normalize();
-        rb.velocity = dir * speed;
+        HelpFunctions.MoveTheThing(rb, Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), speed);
     }
 }
