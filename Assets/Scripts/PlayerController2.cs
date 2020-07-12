@@ -28,8 +28,24 @@ public class PlayerController2 : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ - 90);
 
-        if(Input.GetMouseButton(0)) {
+        if(Input.GetMouseButtonDown(0)) {
             SendMessage("ShootMitosisGun");
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Room")
+        {
+            
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Room")
+        {
+            
         }
     }
 }
