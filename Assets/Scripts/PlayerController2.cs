@@ -7,11 +7,12 @@ public class PlayerController2 : MonoBehaviour
     private Rigidbody2D rb;
     public int speed = 5;
     public float rotationSpeed = 5;
-    public Camera cam;
+    private PrefabFactory pf = null;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        pf = GetComponent(typeof(PrefabFactory)) as PrefabFactory;
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class PlayerController2 : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ - 90);
 
         if(Input.GetMouseButtonDown(0)) {
-            SendMessage("ShootMitosisGun");
+            pf.SpawnPrefabAtLocation("Bullet", GameObject.Find("BulletSpawn").transform.position, transform.rotation);
         }
     }
 
@@ -37,7 +38,8 @@ public class PlayerController2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Room")
         {
-            
+            //Camera.main.transform.position.x = transform.position.x;
+            //Camera.main.transform.position.y = transform.position.y;
         }
     }
 
@@ -45,7 +47,8 @@ public class PlayerController2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Room")
         {
-            
+            //Camera.main.transform.position.x = transform.position.x;
+            //Camera.main.transform.position.y = transform.position.y;
         }
     }
 }
