@@ -9,10 +9,35 @@ class HelpFunctions
         dir.Normalize();
         rb.velocity = dir * speed;
     }
+    
     public static void MoveTheThing(Rigidbody2D rb, Vector2 direction, float speed)
     {
         Vector2 dir = direction;
         dir.Normalize();
         rb.velocity = dir * speed;
+    }
+
+    public static void MoveTheThing(Rigidbody2D rb, Vector3 direction, float speed)
+    {
+        direction.Normalize();
+        rb.velocity = direction * speed;
+    }
+
+
+    public static void CrashTheGame() { CrashTheGame("Message"); }
+
+    public static void CrashTheGame(string str) {
+        if(str == "OS") {
+            UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCategory.AccessViolation); //Error box + OS error
+        }
+        if(str == "Message") {
+            UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCategory.FatalError); //Error message
+        }
+        if(str == "Simple") {
+            UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCategory.Abort); //Error box
+        }
+        if(str == "BlackSheep") {
+            UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCategory.PureVirtualFunction); //Error box
+        }
     }
 }
